@@ -46,6 +46,8 @@ function search_sentence(base, sentence) {
     return result;
 }
 let result;
+let parts = document.getElementsByClassName("parts")[0];
+
 document.getElementById("search").addEventListener("click", function() {
     let base_text = document.getElementById("base_text").value;
     let search_text = document.getElementById("search_text").value;
@@ -53,14 +55,13 @@ document.getElementById("search").addEventListener("click", function() {
     search_text = search_text.toLowerCase();
     result = search_sentence(base_text, search_text)
 
-    let original = document.createElement("p");
-    original.innerText = base_text;
-    document.getElementsByClassName("input")[0].appendChild(original);
+    document.getElementsByClassName("input")[0].innerText = base_text;
 
+    parts.innerHTML = "";
     for (const sentence of result) {
         let p = document.createElement("p");
         p.innerHTML = sentence;
         p.className = "monospace";
-        document.getElementsByClassName("parts")[0].appendChild(p);
+        parts.appendChild(p);
     }
 });
