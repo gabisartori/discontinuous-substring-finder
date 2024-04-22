@@ -1,0 +1,7 @@
+.monospace {
+    white-space: pre-wrap;
+    border: 1px solid black;
+    max-width: 500px;
+    font-family: monospace;
+    word-wrap: break-all;
+}
